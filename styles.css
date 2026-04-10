@@ -1,0 +1,39 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+    background-color:#C5050C;
+    padding-left: 20px;
+    margin:0;
+    
+}
+
+nav {
+    display: flex;
+    background-color:#C5050C;
+    padding: 10px;
+    gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: lightgray;
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+
+.flex-to-side {
+    display: flex;
+    gap: 10px;
+}

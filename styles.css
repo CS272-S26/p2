@@ -20,6 +20,7 @@ nav {
 nav a {
   color: white;
   text-decoration: none;
+  margin-left: 5px;
 }
 
 nav a:hover {

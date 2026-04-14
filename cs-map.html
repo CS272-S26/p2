@@ -42,6 +42,10 @@
             align-items: center;
             transform: translate(-50%, -50%);
             border: 4px solid black;
+            cursor: pointer;
+            font-size: medium;
+            white-space: pre-line;
+            text-align: center;
         }
 
         .oval-center-text {
@@ -60,16 +64,22 @@
             justify-content: center;
             align-items: center;
         }
+
+        .main-title-cs-maps {
+            margin-left: 30px;
+            margin-top: 20px;
+            background-color: white;
+        }
     </style>
 
-    <h2>CS Research Groups</h2>
+    <h1 class="main-title-cs-maps">UW-Madison Computer Science Research Groups</h2>
     <div class="big-oval" id="big-oval">
         <div class="oval-center-text" id="oval-center-text">
-            Click a course to see details.
+            Click a topic to see a description.
         </div>
     </div>
 
-
+    <!-- Create Map and display dynamic description on user input -->
     <script>
         const csFields = {
             "Data Science": "Faculty and students who participate in data science research span several of the department’s traditional groups including databases, numerical analysis, optimization, systems, and networking. This interdisciplinary group is generally focused on developing novel techniques and systems for collecting, analyzing, managing, processing, storing, and visualizing large amounts of data. The group also focuses on collaborations with researchers outside CS to solve domain-specific problems in areas such as agriculture, biology, and physical sciences. One of the great data science impacts of the department is in development of the HTCondor software suite for distributed processing. HTCondor is used all over the world including by the Nobel Prize winning work on the discovery of the Higgs Boson at CERN and the detection of Gravitational Waves by the LIGO Collaboration.",
@@ -124,11 +134,19 @@
                 centerText.textContent = csFields[course];
             });
 
+            item.onmouseover = function() {
+                this.style.backgroundColor = "rgb(23, 150, 205)";
+            };
+            item.onmouseout = function() {
+                this.style.backgroundColor = "royalblue";
+            };
+
             bigOval.appendChild(item);
 
             count++;
         }
     </script>
+    <p style="margin-top: 60px; margin-left: 20px;">Descriptions from <a href="https://www.cs.wisc.edu/research/research-groups/" target="_blank">https://www.cs.wisc.edu/research/research-groups/</a></p>
 </body>
 
 </html>

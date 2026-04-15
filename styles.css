@@ -1,10 +1,17 @@
+/*
+  UW-Madison Brand:
+  Red: #C5050C
+  White: #FFFFFF
+  Font: Red Hat Text
+*/
+
 body {
   margin: 0;
   padding: 0;
+  font-family: 'Red Hat Text', sans-serif;
 }
 
 h1 {
-    background-color:#C5050C;
     padding-left: 20px;
     margin:0;
     
@@ -12,19 +19,10 @@ h1 {
 
 nav {
     display: flex;
-    background-color:#C5050C;
+    background-color:#C5050C !important;
+    color: #FFFFFF !important;
     padding: 10px;
     gap: 20px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 5px;
-}
-
-nav a:hover {
-  color: rgb(211, 211, 211);
 }
 
 .side-panel {
@@ -37,4 +35,21 @@ nav a:hover {
 .flex-to-side {
     display: flex;
     gap: 10px;
+}
+
+.uwmadison {
+  background-color: #C5050C;
+  color: #FFFFFF;
+}
+
+.uwmadison .nav-link {
+    color: #FFFFFF !important;
+    text-decoration: none;
+    opacity: 1;
+}
+
+.uwmadison .nav-link:hover {
+    color: #ffffff !important;
+    text-shadow: 2px 2px 4px #000000;
+    text-decoration: underline;
 }

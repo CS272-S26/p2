@@ -17,6 +17,10 @@ h1 {
     
 }
 
+body p {
+    font-size: 20px;
+}
+
 nav {
     display: flex;
     background-color:#C5050C !important;

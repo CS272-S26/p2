@@ -1,0 +1,59 @@
+const creators = [
+    { name: "Tyler Tang", image: "./images/tyler.jpg", bio: "Hi I'm Tyler," },
+    { name: "Ray Wang", image: "./images/ray.jpg", bio: "Hi I'm Ray," },
+    { name: "Will Dvorak", image: "./images/will.jpg", bio: "Hi I'm Will," },
+    { name: "Jae Woo Song", image: "./images/jaewoo.jpg", bio: "Hi I'm Jae Woo, I am majoring in Computer Science and minoring in Math. My hobbies are grappling sports and finding good restaurants." }
+];
+
+function makeCreatorCard(creator) {
+    // Card
+    const card = document.createElement('div');
+    card.className = 'card text-center p-4';
+    card.style.width = '500px';
+    card.style.margin = '40px auto';
+
+    // Image
+    const img = document.createElement('img');
+    img.src = creator.image;
+    img.className = 'rounded-circle mb-3';
+    img.style.width = '150px';
+    img.style.height = '150px';
+    img.style.display = 'block';
+    img.style.margin = '0 auto';
+
+    // Name
+    const name = document.createElement('h5');
+    name.textContent = creator.name;
+
+    // Button
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-primary';
+    btn.textContent = 'View Bio';
+
+    // Bio
+    const bio = document.createElement('p');
+    bio.textContent = creator.bio;
+    bio.style.display = 'none';
+
+    btn.addEventListener('click', () => {
+        if (bio.style.display === 'none') {
+            bio.style.display = 'block';
+            btn.textContent = 'Hide Bio';
+        } else {
+            bio.style.display = 'none';
+            btn.textContent = 'View Bio';
+        }
+    });
+
+    card.appendChild(img);
+    card.appendChild(name);
+    card.appendChild(btn);
+    card.appendChild(bio);
+
+    return card;
+}
+
+const container = document.getElementById('creators');
+creators.forEach((creator) => {
+    container.appendChild(makeCreatorCard(creator));
+});

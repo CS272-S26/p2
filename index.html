@@ -1,75 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!--
-    UW-Madison Brand:
-  Red: #C5050C
-  White: #FFFFFF
-  Font: Red Hat Text
--->
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>About Us Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="styles.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="make-header.js" defer></script>
-    <script src="index-page-tools.js" defer></script>
-    <script src="heart.js" type="module" defer></script>
+    <script src="make-creator.js" defer></script>
 </head>
 
 <body>
-    <div id="header"></div>
-    <div class="container-fluid">
-    <div style="padding-left:30px; padding-top:30px; padding-right: 50px" class="row">
-        <h3>Welcome to the UW-Madison CS Advising Website!</p>
-        <p style="line-height:30px">This website is for CS majors at UW-Madison to help them find the best courses for them to take,
-             and to learn more about the CS major. Look through the pages for useful information about
-            this major, its requirements, and suggestions for what courses you want to take!</p>
-        <h3>Fun tools for you to play with:</h3>
-        <div class="col-6" style="gap: 16px">
-            <div class="card p-3 uwmadison">
-                <div class="card-title">
-                    <p>Approximate Major Progress Tracker</p>
-                </div>
-                <div class="card-subtitle">
-                    <p style="font-size:15px">This little tool tells you how far along you are in your major.
-                         Enter your credit count, and it will tell you what % you are
-                        done with your major by credit count. It will also tell you when
-                        you are likely to graduate!</p>
-                </div>
-                <label>Enter your current credit count (must be between 0-999):</label>
-                <div style="display: flex; padding-bottom: 10px">
-                    <input type="text" placeholder="Credit count (ex. 30)"
-                    id="credit-count" class="form-control" minLength="1", maxLength="3" pattern="[0-9]{1,3}">
-                    <button class="form-control uwmadison" onClick="checkMajorProgress()" style="width: 25%">Track!</button>
-                </div>
-                <p id="credit-text"></p>
-            </div>
-        </div>
+    <style>
+        .about-h2 {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top:20px;
+        }
 
-        <div class="col-6" style="gap: 16px">
-            <div class="card p-3 uwmadison">
-                <div class="card-title">
-                    <p>Graphics Demo</p>
-                </div>
-                <div class="card-subtitle">
-                    <p style="font-size:15px">I learned to build this cool graphics demo in my 
-                        CS559 Computer Graphics course. Isn't that cool? There's so many things to 
-                        learn in CS at UW-Madison, try branching out sometime!</p>
-                </div>
-                <div class="container">
-                    <canvas id="myCanvas" height="400" width="600"></canvas>                    
-                </div>
-            </div>
-        </div>
+        .about-body {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 20px;
+        }
+    </style>
+    <div id="header"></div>
+    <div>
+        <h2 class = "about-h2">Introduction</h2>
+        <p class = "about-body">
+            <strong>Purpose:</strong> CS majors in UW Madison have to take 
+            <em>"Basic CS classes"</em> +
+            <em>"Basic math classes"</em> + <em>"Advanced CS Courses"</em> to fulfill their
+            degree. While <em>"Basic CS & Basic Math classes"</em> are mostly fixed, 
+            students are able to choose from a wide variety of <em>"Advanced CS Courses"</em> 
+            (Theory, Software&Hardware, Applications, Electives). Therefore, in order to help students pick courses from 
+            the <em>"Advanced CS Courses"</em>, this website is served to give a general understanding of the Computer Science fields 
+            and provide information about the relevant courses students might consider.
+        </p>
+        <p class = "about-body">
+            <strong>Page Guide:</strong> The website will have the following pages.<br/>
+            <u>Home</u>: Welcoming page, there are some cool tools you can play around with.<br/>
+            <u>Requirements</u>: Description of current requirements for the UW Madison Bachelor's CS degree.<br/>
+            <u>CS Fields</u>: A map of the Computer Science Fields.<br/>
+            <u>Tracks</u>: Course recommendations for specifc tracks.<br/>
+            <u>Course List</u>: The CS courses that UW Madison offers.<br/>
+            <u>My Courses</u>: The courses that a student selected as a favorite from the Course List page.<br/>
+        </p>
     </div>
+    <div id="creators">
+        <h2 class = "about-h2">Creators</h2>
     </div>
-    
 </body>
 
 </html>

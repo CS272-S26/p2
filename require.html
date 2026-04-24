@@ -11,9 +11,15 @@
     <link href="styles.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="make-header.js" defer></script>
+    <script src="make-requirements.js" defer></script>
 </head>
 
 <body>
+    <style>
+        section {
+    margin-top: 30px;
+}
+    </style>
     <div id="header"></div>
     
     <main class="requirements-page" style="padding-left:42px; padding-top:30px">
@@ -44,13 +50,7 @@
                 These courses build the main foundation of the major and are required before
                 moving into many upper-level CS classes.
             </p>
-            <ul>
-                <li>Introduction to Discrete Mathematics – CS 240</li>
-                <li>Introduction to Computer Engineering – CS 252</li>
-                <li>Programming II – CS 300</li>
-                <li>Machine Organization and Programming – CS 354</li>
-                <li>Programming III – CS 400</li>
-            </ul>
+            <div id="intro-courses"></div>
         </section>
 
         <section class="math-requirements">
@@ -59,13 +59,7 @@
                 Computer Science students also complete math courses that support problem solving,
                 logic, and technical computing.
             </p>
-            <ul>
-                <li>Basic Calculus – (MATH 221 & MATH 222) or (MATH 171 & MATH 217 & MATH 222)</li>
-                <li>Linear Algebra (1 course) – MATH 320 or MATH 340 or MATH 345 or MATH 341 or MATH 375</li>
-                <li>Probability or Statistics (1 course) – STAT/MATH 509 or STAT 311 or STAT 324 or MATH 331 or 
-                    STAT 333 or STAT 340 or STAT 371 or STAT/MATH 341 or MATH 531
-                </li>
-            </ul>
+            <div id="math-courses"></div>
         </section>
 
         <section class="advanced-cs">
@@ -75,12 +69,7 @@
                 courses. These courses allow students to explore different areas of computer science,
                 such as Theory, Software & Hardware, Applications, Electives.
             </p>
-            <ul>
-                <li>Theory of Computer Science (1 course)</li>
-                <li>Software & Hardware (2 courses)</li>
-                <li>Applications (1 course)</li>
-                <li>Electives (2 courses)</li>
-            </ul>
+            <div id="advanced-courses"></div>
         </section>
 
         <section class="additional-notes">

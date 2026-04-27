@@ -16,12 +16,33 @@
 </head>
 
 <body>
+    <style>
+        .course-list-h2 {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top:20px;
+        }
+
+        .course-list-body {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top:20px;
+        }
+
+        .course-list-box {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 20px;
+        }
+    </style>
     <div id="header"></div>
-    <div style="padding: 20px">
-        <h3 style="padding-left: 40px">Look through some CS and CS-adjacent courses!</h3>
-        <div class="container-fluid">
-            <div class="row" id="course-list">
-            </div>
+    <div>
+        <h2 class="course-list-h2">Look through some CS and CS-adjacent courses!</h2>
+        <p class = "course-list-body">
+            Press the star and the course will be saved on the "My Courses" page!
+        </p>
+        <div class="course-list-box">
+            <ul id="course-list" class="list-group"></ul>
         </div>
     </div>
 </body>

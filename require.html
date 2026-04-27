@@ -16,17 +16,31 @@
 
 <body>
     <style>
-        section {
-    margin-top: 30px;
-}
+        .require-h2 {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top:20px;
+        }
+
+        .require-body {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 20px;
+        }
+
+        .require-box {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 20px;
+        }
     </style>
     <div id="header"></div>
     
-    <main class="requirements-page" style="padding-left:42px; padding-top:30px">
-        <h2 class="main-title-requirements">UW-Madison Computer Science Requirements</h2>
+    <main class="requirements-page">
+        <h2 class="require-h2">UW-Madison Computer Science Requirements</h2>
 
         <section class="requirements-intro">
-            <p>
+            <p class="require-body">
                 The Computer Science major at UW-Madison includes foundational computer science courses,
                 mathematics requirements, and advanced computer science courses. This page gives a simplified overview
                 of the major requirements to help students understand how the degree is structured. 
@@ -35,46 +49,46 @@
         </section>
 
         <section class="requirements-overview">
-            <h3>Overview</h3>
-            <ul>
-                <li>Complete introductory computer science courses</li>
-                <li>Complete required mathematics courses</li>
-                <li>Complete advanced computer science coursework</li>
-                <li>Meet overall school and degree requirements</li>
-            </ul>
+            <h2 class="require-h2">Overview</h2>
+            <div class="require-body">
+                <p>1. Complete introductory computer science courses</p>
+                <p>2. Complete required mathematics courses</p>
+                <p>3. Complete advanced computer science coursework</p>
+                <p>4. Meet overall school and degree requirements</p>
+            </div>
         </section>
 
         <section class="core-cs">
-            <h3>Introductory Computer Science Courses</h3>
-            <p>
+            <h2 class="require-h2">Introductory Computer Science Courses</h2>
+            <p class="require-body">
                 These courses build the main foundation of the major and are required before
-                moving into many upper-level CS classes.
+                moving into upper-level CS classes.
             </p>
-            <div id="intro-courses"></div>
+            <div id="intro-courses" class="require-box"></div>
         </section>
 
         <section class="math-requirements">
-            <h3>Mathematics Requirements</h3>
-            <p>
-                Computer Science students also complete math courses that support problem solving,
-                logic, and technical computing.
+            <h2 class="require-h2">Mathematics Requirements</h2>
+            <p class="require-body">
+                Computer Science students also complete math courses from Calculus, Linear Algebra,
+                and Probability/Statistics
             </p>
-            <div id="math-courses"></div>
+            <div id="math-courses" class="require-box"></div>
         </section>
 
         <section class="advanced-cs">
-            <h3>Advanced Computer Science Coursework</h3>
-            <p>
+            <h2 class="require-h2">Advanced Computer Science Coursework</h2>
+            <p class="require-body">
                 After completing core requirements, students choose from a variety of advanced CS
                 courses. These courses allow students to explore different areas of computer science,
                 such as Theory, Software & Hardware, Applications, Electives.
             </p>
-            <div id="advanced-courses"></div>
+            <div id="advanced-courses" class="require-box"></div>
         </section>
 
         <section class="additional-notes">
-            <h3>Additional Notes</h3>
-            <p>
+            <h2 class="require-h2">Additional Notes</h2>
+            <p class="require-body">
                 Students must make sure they meet university, college, and degree requirements in
                 addition to major requirements. The official UW-Madison guide should always be checked
                 for the most current and complete requirement details.
@@ -82,8 +96,8 @@
         </section>
 
         <section class="official-link">
-            <h3>Official Requirement Page</h3>
-            <p>
+            <h2 class="require-h2">Official Requirement Page</h2>
+            <p class="require-body">
                 For the full and official requirement list, visit:
                 <a href="https://guide.wisc.edu/undergraduate/letters-science/computer-sciences/computer-sciences-bs/#requirementstext" target="_blank">
                     UW-Madison Computer Sciences B.S. Requirements

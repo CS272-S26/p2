@@ -11,6 +11,7 @@
     <link href="styles.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="make-header.js" defer></script>
+    <script src="make-my-courses.js" defer></script>
 </head>
 
 <body>
@@ -26,6 +27,12 @@
             padding-right: 40px;
             padding-top: 20px;
         }
+
+        .my-courses-box {
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 20px;
+        }
     </style>
     <div id="header"></div>
     <div>
@@ -33,6 +40,7 @@
         <p class = "my-courses-body">
             Below are the courses that you selected as favorites!<br/>
         </p>  
+        <ul id="my-courses" class="my-courses-box"></ul>
     </div>
 </body>
 

@@ -5,6 +5,13 @@ const creators = [
     { name: "Jae Woo Song", image: "./images/jaewoo.jpg", bio: "Hi I'm Jae Woo, I am majoring in Computer Science and minoring in Math. My hobbies are grappling sports and finding good restaurants." }
 ];
 
+/**
+ * Creates and returns a card element for a given creator.
+ * The card displays the creator's profile image, name, and a toggle button
+ * that shows or hides their bio when clicked.
+ * @param {object} creator - the creator data object
+ * @returns {HTMLElement} a card div element to be placed into the webpage
+ */
 function makeCreatorCard(creator) {
     // Card
     const card = document.createElement('div');
@@ -53,6 +60,7 @@ function makeCreatorCard(creator) {
     return card;
 }
 
+// Get the creators container and append a card for each creator
 const container = document.getElementById('creators');
 creators.forEach((creator) => {
     container.appendChild(makeCreatorCard(creator));

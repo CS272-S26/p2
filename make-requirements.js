@@ -39,24 +39,36 @@ const advancedCourses = [
     }
 ];
 
-function makeCourseItem(track, index) {
+/**
+ * Creates and returns an accordion item element for a given requirement category.
+ * The item displays a clickable button with the category name that toggles
+ * a list of courses when clicked.
+ * @param {object} requirement - the requirement category object
+ * @param {number} index - the index of the requirement in its array
+ * @returns {HTMLElement} an accordion item div element to be placed into the webpage
+ */
+function makeCourseItem(requirement, index) {
+    // Accordion item container
     const item = document.createElement('div');
     item.className = 'accordion-item';
     item.style.marginBottom = '15px';
 
+    // Clickable button displaying the requirement category name
     const button = document.createElement('button');
     button.className = 'accordion-button collapsed';
     button.style.fontWeight = 'bold';
     button.style.backgroundColor = '#f1f1f1';
-    button.textContent = track.name;
+    button.textContent = requirement.name;
 
+    // Body that holds the course list
     const body = document.createElement('div');
     body.className = 'accordion-body';
     body.style.display = 'none';
 
+    // Build the course list if courses exist for this requirement
     const courseList = document.createElement('ul');
-    if (track.courses) {
-        track.courses.forEach(course => {
+    if (requirement.courses) {
+        requirement.courses.forEach(course => {
             const li = document.createElement('li');
             li.textContent = course;
             courseList.appendChild(li);
@@ -65,6 +77,7 @@ function makeCourseItem(track, index) {
     
     body.appendChild(courseList);
 
+    // Toggle body visibility when button is clicked
     button.addEventListener('click', () => {
         if (body.style.display === 'none') {
             body.style.display = 'block';
@@ -81,31 +94,34 @@ function makeCourseItem(track, index) {
     return item;
 }
 
+// Get the introductory courses container and build its accordion
 const introCourseContainer = document.getElementById('intro-courses');
 const introCourseAccordion = document.createElement('div');
 introCourseAccordion.className = 'accordion';
 introCourseAccordion.id = 'introCourseAccordion';
 
-introCourses.forEach((track, index) => {
-    introCourseAccordion.appendChild(makeCourseItem(track, index));
+introCourses.forEach((requirement, index) => {
+    introCourseAccordion.appendChild(makeCourseItem(requirement, index));
 });
 
+// Get the math requirements container and build its accordion
 const mathCourseContainer = document.getElementById('math-courses');
 const mathCourseAccordion = document.createElement('div');
 mathCourseAccordion.className = 'accordion';
 mathCourseAccordion.id = 'mathCourseAccordion';
 
-mathCourses.forEach((track, index) => {
-    mathCourseAccordion.appendChild(makeCourseItem(track, index));
+mathCourses.forEach((requirement, index) => {
+    mathCourseAccordion.appendChild(makeCourseItem(requirement, index));
 });
 
+// Get the advanced courses container and build its accordion
 const advancedCourseContainer = document.getElementById('advanced-courses');
 const advancedCourseAccordion = document.createElement('div');
 advancedCourseAccordion.className = 'accordion';
 advancedCourseAccordion.id = 'advancedCourseAccordion';
 
-advancedCourses.forEach((track, index) => {
-    advancedCourseAccordion.appendChild(makeCourseItem(track, index));
+advancedCourses.forEach((requirement, index) => {
+    advancedCourseAccordion.appendChild(makeCourseItem(requirement, index));
 });
 
 introCourseContainer.appendChild(introCourseAccordion);

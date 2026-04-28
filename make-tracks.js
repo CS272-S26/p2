@@ -41,25 +41,37 @@ const tracks = [
     }
 ];
 
-
+/**
+ * Creates and returns an accordion item element for a given course category.
+ * The item displays a clickable button with the category name that toggles
+ * a list of courses when clicked.
+ * @param {object} track - the course category object
+ * @param {number} index - the index of the track in its array
+ * @returns {HTMLElement} an accordion item div element to be placed into the webpage
+ */
 function makeTrackItem(track, index) {
+    // Accordion item container
     const item = document.createElement('div');
     item.className = 'accordion-item';
     item.style.marginBottom = '15px';
 
+    // Clickable button
     const button = document.createElement('button');
     button.className = 'accordion-button collapsed';
     button.style.fontWeight = 'bold';
     button.style.backgroundColor = '#f1f1f1';
     button.textContent = track.name;
 
+    // Body that holds the course list
     const body = document.createElement('div');
     body.className = 'accordion-body';
     body.style.display = 'none';
 
+    // Detailed ddescription
     const details = document.createElement('p');
     details.textContent = track.details;
 
+    // Build the course lis
     const courseList = document.createElement('ul');
     if (track.courses) {
         track.courses.forEach(course => {
@@ -72,6 +84,7 @@ function makeTrackItem(track, index) {
     body.appendChild(details);
     body.appendChild(courseList);
 
+    // Toggle body visibility when button is clicked
     button.addEventListener('click', () => {
         if (body.style.display === 'none') {
             body.style.display = 'block';

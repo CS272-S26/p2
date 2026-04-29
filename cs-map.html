@@ -11,26 +11,23 @@
     <link href="styles.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;500;700&display=swap" rel="stylesheet">
     <script src="make-header.js" defer></script>
-</head>
-
-<body>
-    <div id="header"></div>
     <style>
         .big-oval {
             position: relative;
-            height: 600px;
-            width: 1200px;
-            margin-top: 80px;
+            width: min(95vw, 1200px);
+            aspect-ratio: 2 / 1;
+            margin-top: 60px;
             margin-left: auto;
             margin-right: auto;
             outline: 2px solid black;
             border-radius: 50%;
+            background-color: white;
         }
 
         .oval-element {
             position: absolute;
-            width: 200px;
-            height: 100px;
+            width: clamp(90px, 16vw, 200px);
+            height: clamp(45px, 8vw, 100px);
             background: #C5050C;
             color: white;
             border-radius: 50%;
@@ -40,9 +37,11 @@
             transform: translate(-50%, -50%);
             border: 4px solid black;
             cursor: pointer;
-            font-size: medium;
+            font-size: clamp(10px, 1.3vw, 16px);
             white-space: pre-line;
             text-align: center;
+            padding: 6px;
+            line-height: 1.1;
         }
 
         .oval-center-text {
@@ -50,7 +49,7 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 500px;
+            width: min(70%, 500px);
             min-height: 120px;
             background: white;
             border: 2px solid black;
@@ -60,6 +59,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            line-height: 1.4;
+            font-size: clamp(12px, 1.1vw, 16px);
         }
 
         .main-title-cs-maps {
@@ -67,14 +68,59 @@
             margin-top: 20px;
             background-color: white;
         }
-    </style>
 
-    <h1 class="main-title-cs-maps">UW-Madison Computer Science Research Groups</h2>
-    <div class="big-oval" id="big-oval">
-        <div class="oval-center-text" id="oval-center-text">
-            Click a topic to see a description.
+        .accordion-button:not(.collapsed) {
+            background-color: #C5050C;
+            color: white;
+        }
+
+        .accordion-button {
+            font-weight: 600;
+        }
+
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: #C5050C;
+        }
+
+        @media (max-width: 767.98px) {
+            .main-title-cs-maps {
+                margin-left: 16px;
+                margin-right: 16px;
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="header"></div>
+
+    <h1 class="main-title-cs-maps">UW-Madison Computer Science Research Groups</h1>
+
+    <!-- Desktop / tablet oval map -->
+    <div class="d-none d-md-block">
+        <div class="big-oval" id="big-oval">
+            <div class="oval-center-text" id="oval-center-text">
+                Click a topic to see a description.
+            </div>
         </div>
     </div>
+
+    <!-- Mobile accordion -->
+    <div class="container d-block d-md-none mt-4">
+        <div class="accordion" id="csAccordion"></div>
+    </div>
+
+    <br>
+
+    <p style="margin-top: 60px; margin-left: 20px; margin-right: 20px;">
+        Descriptions from
+        <a href="https://www.cs.wisc.edu/research/research-groups/" target="_blank">
+            https://www.cs.wisc.edu/research/research-groups/
+        </a>
+
+    </p>
 
     <!-- Create Map and display dynamic description on user input -->
     <script>
@@ -98,52 +144,123 @@
 
         const bigOval = document.getElementById("big-oval");
         const centerText = document.getElementById("oval-center-text");
+        const csAccordion = document.getElementById("csAccordion");
 
-        // For a 1200 x 600 oval
-        const ovalCenterX = 600;
-        const ovalCenterY = 300;
+        let selectedItem = null;
 
-        const ovalRadiusX = 600;
-        const ovalRadiusY = 300;
 
-        const totalItems = 15;
-        let count = 0;
+        /* This function renders the traditional oval map on larger screen sizes
+            like the typical desktop. */
+        function renderDesktopMap() {
+            if (!bigOval) return;
 
-        for (let course of Object.keys(csFields)) {
+            const existingNodes = bigOval.querySelectorAll(".oval-element");
+            existingNodes.forEach(node => node.remove());
 
-            const angle = (2 * Math.PI / Object.keys(csFields).length) * count;
-            
+            const ovalWidth = bigOval.offsetWidth;
+            const ovalHeight = bigOval.offsetHeight;
 
-            const x = ovalCenterX + ovalRadiusX * Math.cos(angle);
-            const y = ovalCenterY + ovalRadiusY * Math.sin(angle);
+            const ovalCenterX = ovalWidth / 2;
+            const ovalCenterY = ovalHeight / 2;
 
-            const item = document.createElement("div");
-            item.classList.add("oval-element");
+            const ovalRadiusX = ovalWidth / 2;
+            const ovalRadiusY = ovalHeight / 2;
 
-            const courseName = course;
-            console.log()
-            item.textContent = courseName;
+            const fields = Object.keys(csFields);
 
-            item.style.left = `${x}px`;
-            item.style.top = `${y}px`;
+            fields.forEach((field, index) => {
+                const angle = (2 * Math.PI / fields.length) * index;
 
-            item.addEventListener("click", function () {
-                centerText.textContent = csFields[course];
+                const x = ovalCenterX + ovalRadiusX * Math.cos(angle);
+                const y = ovalCenterY + ovalRadiusY * Math.sin(angle);
+
+                const item = document.createElement("div");
+                item.classList.add("oval-element");
+                item.textContent = field;
+
+                item.style.left = `${x}px`;
+                item.style.top = `${y}px`;
+
+                item.addEventListener("click", function () {
+                    centerText.textContent = csFields[field];
+
+                    if (selectedItem) {
+                        selectedItem.style.backgroundColor = "#C5050C";
+                    }
+
+                    item.style.backgroundColor = "#8B0000";
+                    selectedItem = item;
+                });
+
+                item.addEventListener("mouseover", function () {
+                    if (item !== selectedItem) {
+                        item.style.backgroundColor = "#ff2930";
+                    }
+                });
+
+                item.addEventListener("mouseout", function () {
+                    if (item !== selectedItem) {
+                        item.style.backgroundColor = "#C5050C";
+                    }
+                });
+
+                bigOval.appendChild(item);
             });
-
-            item.onmouseover = function() {
-                this.style.backgroundColor = "#ff2930";
-            };
-            item.onmouseout = function() {
-                this.style.backgroundColor = "#C5050C";
-            };
-
-            bigOval.appendChild(item);
-
-            count++;
         }
+
+        /* this function turns the oval map into an accordian styled list when the screen size
+            becomes too small */
+        function renderMobileAccordion() {
+            if (!csAccordion) return;
+
+            while (csAccordion.firstChild) {
+                csAccordion.removeChild(csAccordion.firstChild);
+            }
+
+            const fields = Object.entries(csFields);
+
+            fields.forEach(([field, description], index) => {
+                const accordionItem = document.createElement("div");
+                accordionItem.className = "accordion-item";
+
+                const accordionHeader = document.createElement("h2");
+                accordionHeader.className = "accordion-header";
+                accordionHeader.id = `heading-${index}`;
+
+                const accordionButton = document.createElement("button");
+                accordionButton.className = "accordion-button collapsed";
+                accordionButton.type = "button";
+                accordionButton.setAttribute("data-bs-toggle", "collapse");
+                accordionButton.setAttribute("data-bs-target", `#collapse-${index}`);
+                accordionButton.setAttribute("aria-expanded", "false");
+                accordionButton.setAttribute("aria-controls", `collapse-${index}`);
+                accordionButton.textContent = field.replaceAll("\n", " ");
+
+                const collapseDiv = document.createElement("div");
+                collapseDiv.id = `collapse-${index}`;
+                collapseDiv.className = "accordion-collapse collapse";
+                collapseDiv.setAttribute("aria-labelledby", `heading-${index}`);
+                collapseDiv.setAttribute("data-bs-parent", "#csAccordion");
+
+                const accordionBody = document.createElement("div");
+                accordionBody.className = "accordion-body";
+                accordionBody.textContent = description;
+
+                collapseDiv.appendChild(accordionBody);
+                accordionHeader.appendChild(accordionButton);
+                accordionItem.appendChild(accordionHeader);
+                accordionItem.appendChild(collapseDiv);
+                csAccordion.appendChild(accordionItem);
+            });
+        }
+
+        renderDesktopMap();
+        renderMobileAccordion();
+
+        window.addEventListener("resize", renderDesktopMap);
     </script>
-    <p style="margin-top: 60px; margin-left: 20px;">Descriptions from <a href="https://www.cs.wisc.edu/research/research-groups/" target="_blank">https://www.cs.wisc.edu/research/research-groups/</a></p>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

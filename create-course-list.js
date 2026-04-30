@@ -17,8 +17,10 @@ courseSearchNode.addEventListener("input", () => {
   document.querySelectorAll("#course-list li").forEach((course) => {
     const courseId = course.dataset.courseId.toLowerCase();
     const courseName = course.dataset.courseName.toLowerCase();
+    const courseKey = course.dataset.courseKeywords.toLowerCase();
+
     const match =
-      courseId.includes(searchText) || courseName.includes(searchText);
+      courseId.includes(searchText) || courseName.includes(searchText) || courseKey.includes(searchText);
 
     if (match) {
       course.style.display = "";
@@ -43,6 +45,7 @@ function appendCourseComponent(courseData) {
   newItemNode.id = `course-${courseData.id}`;
   newItemNode.dataset.courseId = courseData.id;
   newItemNode.dataset.courseName = courseData.name;
+  newItemNode.dataset.courseKeywords = courseData.keywords.join(" ");
   newItemNode.className = "list-group-item p-3 mb-2 rounded";
   newItemNode.style.border = "1px solid #c5050c";
 

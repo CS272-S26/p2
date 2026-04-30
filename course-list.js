@@ -116,7 +116,7 @@ function getCourseList() {
             id: "CS435",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["cryptography", "security", "math"],
+            keywords: ["cryptography", "security", "math", "theory"],
             name: "Introduction to Cryptography",
             description: "Cryptography is the art and science of transmitting digital information in a secure manner. Provides an introduction to its technical aspects."
         },
@@ -132,7 +132,7 @@ function getCourseList() {
             id: "CS472",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["javascript", "web", "intro"],
+            keywords: ["javascript", "web", "intro", "industry"],
             name: "Introduction to Web Development (LIS)",
             description: "Applied web development introduces methods and tools for creating and maintaining secure and interactive web content. Topics include programming fundamentals to support core web concepts, application development essentials, and content management systems. Web best practices such as accessibility, design, and critical thinking about relevant ethics and organization will be incorporated throughout."
         },
@@ -140,7 +140,7 @@ function getCourseList() {
             id: "CS475",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["math", "combinatorics"],
+            keywords: ["math", "combinatorics", "optimization"],
             name: "Introduction to Combinatorics",
             description: "Problems of enumeration, distribution, and arrangement. Inclusion-exclusion principle. Generating functions and linear recurrence relations. Combinatorial identities. Graph coloring problems. Finite designs. Systems of distinct representatives and matching problems in graphs."
         },
@@ -148,7 +148,7 @@ function getCourseList() {
             id: "CS506",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["software engineering", "design"],
+            keywords: ["software engineering", "design", "industry"],
             name: "Software Engineering",
             description: "Ideas and techniques for designing, developing, and modifying large software systems. Topics include software engineering processes; requirements and specifications; project team organization and management; software architectures; design patterns; testing and debugging; and cost and quality metrics and estimation."
         },
@@ -212,7 +212,7 @@ function getCourseList() {
             id: "CS536",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["compilers", "programming languages"],
+            keywords: ["compilers", "programming languages", "unspecialized"],
             name: "Introduction to Programming Languages and Compilers",
             description: "Introduction to the theory and practice of compiler design. Comparison of features of several programming languages and their implications for implementation techniques. Several programming projects required."
         },
@@ -220,7 +220,7 @@ function getCourseList() {
             id: "CS537",
             credits: 4,
             department: "Computer Sciences",
-            keywords: ["operating systems", "systems"],
+            keywords: ["operating systems", "systems", "unspecialized"],
             name: "Introduction to Operating Systems",
             description: "Input-output hardware, interrupt handling, properties of magnetic tapes, discs and drums, associative memories and virtual address translation techniques. Batch processing, time sharing and real-time systems, scheduling resource allocation, modular software systems, performance measurement and system evaluation."
         },
@@ -244,7 +244,7 @@ function getCourseList() {
             id: "CS540",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["AI", "machine learning", "intro"],
+            keywords: ["AI", "machine learning", "intro", "unspecialized"],
             name: "Introduction to Artificial Intelligence",
             description: "Principles of knowledge-based search techniques, automatic deduction, knowledge representation using predicate logic, machine learning, probabilistic reasoning. Applications in tasks such as problem solving, data mining, game playing, natural language understanding, computer vision, speech recognition, and robotics."
         },
@@ -300,7 +300,7 @@ function getCourseList() {
             id: "CS564",
             credits: 4,
             department: "Computer Sciences",
-            keywords: ["databases", "SQL", "systems"],
+            keywords: ["databases", "SQL", "systems", "unspecialized"],
             name: "Database Management Systems: Design and Implementation",
             description: "What a database management system is; different data models currently used to structure the logical view of the database: relational, hierarchical, and network. Hands-on experience with relational and network-based database systems. Implementation techniques for database systems. File organization, query processing, concurrency control, rollback and recovery, integrity and consistency, and view implementation."
         },
@@ -340,7 +340,7 @@ function getCourseList() {
             id: "CS571",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["user interface", "HCI", "web"],
+            keywords: ["user interface", "HCI", "web", "industry"],
             name: "Building User Interfaces",
             description: "Introduces software development of user interfaces. Build competence in implementing UIs using state-of-the-art UI paradigms, such as event-driven interfaces, direct-manipulation interfaces, and dialogue-based interaction. Learn about fundamental concepts, technologies, algorithms, and methods in building user interfaces."
         },
@@ -356,7 +356,7 @@ function getCourseList() {
             id: "CS577",
             credits: 4,
             department: "Computer Sciences",
-            keywords: ["algorithms", "theory"],
+            keywords: ["algorithms", "theory", "unspecialized"],
             name: "Introduction to Algorithms",
             description: "Basic paradigms for the design and analysis of efficient algorithms: greed, divide-and-conquer, dynamic programming, reductions, and the use of randomness. Computational intractability including typical NP-complete problems and ways to deal with them."
         },
@@ -372,7 +372,7 @@ function getCourseList() {
             id: "CS620",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["capstone", "software engineering", "project"],
+            keywords: ["capstone", "software engineering", "project", "industry"],
             name: "Computer Sciences Capstone",
             description: "Build a meaningful product from start to finish with a local, regional, national and international corporate client that solves a real-world problem. In a collaborative space design, develop, test, debug, document, and deliver a software project for a corporate client, learning and using new technologies and agile software development techniques."
         },
@@ -380,7 +380,7 @@ function getCourseList() {
             id: "CS640",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["networks", "systems", "protocols"],
+            keywords: ["networks", "systems", "protocols", "unspecialized"],
             name: "Introduction to Computer Networks",
             description: "Architecture of computer networks and network protocols, protocol layering, reliable transmission, congestion control, flow control, naming and addressing, unicast and multicast routing, network security, network performance, widely used protocols such as Ethernet, wireless LANs, IP, TCP, and HTTP."
         },
@@ -388,7 +388,7 @@ function getCourseList() {
             id: "CS642",
             credits: 3,
             department: "Computer Sciences",
-            keywords: ["security", "cryptography", "systems"],
+            keywords: ["security", "cryptography", "systems", "unspecialized"],
             name: "Introduction to Information Security",
             description: "Senior level undergraduate course covering various topics on information security. Covers a wide range of topics, such as cryptographic primitives, security protocols, system security, and emerging topics."
         }

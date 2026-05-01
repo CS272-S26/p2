@@ -57,3 +57,9 @@ nav {
     text-shadow: 2px 2px 4px #000000;
     text-decoration: underline;
 }
+
+#myCanvas {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+}

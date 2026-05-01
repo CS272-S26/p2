@@ -1,5 +1,5 @@
 const creators = [
-    { name: "Tyler Tang", image: "./images/tyler.jpg", bio: "Hi I'm Tyler," },
+    { name: "Tyler Tang", image: "./images/tyler.jpg", bio: "Hi I'm Tyler, I am majoring in Computer Science. I like playing volleyball and basketball with people from my social org, the Chinese American Student Association" },
     { name: "Ray Wang", image: "./images/ray.jpg", bio: "Hi I'm Ray, I am majoring in Information Science and minoring in Computer Science. I play videogames and I like cooking." },
     { name: "Will Dvorak", image: "./images/will.jpg", bio: "Hi I'm Will," },
     { name: "Jae Woo Song", image: "./images/jaewoo.jpg", bio: "Hi I'm Jae Woo, I am majoring in Computer Science and minoring in Math. My hobbies are grappling sports and finding good restaurants." }

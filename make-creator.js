@@ -16,7 +16,7 @@ function makeCreatorCard(creator) {
     // Card
     const card = document.createElement('div');
     card.className = 'card text-center p-4';
-    card.style.width = '500px';
+    card.style.width = '50%';
     card.style.margin = '40px auto';
 
     // Image

@@ -102,7 +102,7 @@
     <div class="d-none d-md-block">
         <div class="big-oval" id="big-oval">
             <div class="oval-center-text" id="oval-center-text">
-                Click a topic to see a description.
+                Loading descriptions...
             </div>
         </div>
     </div>
@@ -116,31 +116,33 @@
 
     <p style="margin-top: 60px; margin-left: 20px; margin-right: 20px;">
         Descriptions from
-        <a href="https://www.cs.wisc.edu/research/research-groups/" target="_blank">
-            https://www.cs.wisc.edu/research/research-groups/
+        <a href="https://en.wikipedia.org/api/rest_v1/" target="_blank">
+            https://en.wikipedia.org/api/rest_v1/
         </a>
-
     </p>
 
-    <!-- Create Map and display dynamic description on user input -->
     <script>
+        /**
+         * Maps each CS field name to its corresponding Wikipedia article title.
+         * Descriptions are fetched dynamically from the Wikipedia API at load time.
+         */
         const csFields = {
-            "Data Science": "Faculty and students who participate in data science research span several of the department’s traditional groups including databases, numerical analysis, optimization, systems, and networking. This interdisciplinary group is generally focused on developing novel techniques and systems for collecting, analyzing, managing, processing, storing, and visualizing large amounts of data. The group also focuses on collaborations with researchers outside CS to solve domain-specific problems in areas such as agriculture, biology, and physical sciences. One of the great data science impacts of the department is in development of the HTCondor software suite for distributed processing. HTCondor is used all over the world including by the Nobel Prize winning work on the discovery of the Higgs Boson at CERN and the detection of Gravitational Waves by the LIGO Collaboration.",
-            "Database Systems": "The Database Group UW–Madison was established in 1976 and is one of the top database groups in the world. Database research in the Computer Sciences department at UW–Madison focuses on all aspects of data management for modern analytics and data science. Our contributions span across diverse areas, including data platforms for large-scale analytics that run at the speed of the underlying hardware, cloud-native databases on heterogeneous hardware architectures, machine learning systems for end-to-end data integration and enrichment, and foundational work in data management theory. Our goal in the Database Group at is to help users go from data to actionable insights fast. To this end, we put emphasis on 1) building high-impact systems, such as Hustle (a microservices-based data platform for cloud architectures), Magellan (an end-to-end data integration platform), and HoloClean (a machine learning-based system for data enrichment); and 2) fundamental advances in emerging areas such as data pricing, uncertain data management, data enrichment, and emerging hardware devices. https://database.cs.wisc.edu/",
-            "Security": "The Security and Privacy Group has a wide-range of interests, including cyber-physical systems (e.g., security of Internet-of-things, smart homes/buildings), adversarial machine learning, language-based security (e.g., machine code analysis and software “debloating”), differential privacy, software vulnerability assessment, and human aspects of security and privacy (e.g., user authentication, socio-technical aspects of security, automatic presentation of privacy information and controls). Some of our recent work has focused on methods for detecting online attacks and fraud.\n\nWe have identified vulnerabilities in modern self-driving cars, rolling-shutter cameras, quantitatively showed the perils of leaked passwords and how to protect user accounts from them, and have improved the security of trigger-action-platforms (TAPs) such as If-This-Then-That by enabling them to compute on encrypted data. https://madsp.cs.wisc.edu/.",
-            "Quantum Computing": "We are a group of faculty and students working on quantum computing at UW-Madison’s Computer Sciences Department. We cover all kinds of quantum computing topics, from algorithms to hardware and everything in between. Our faculty lead projects on post-quantum cryptography, hardware architectures for future quantum computers, quantum programming languages and compilers, and more. We also benefit from a vibrant ecosystem for quantum computing research at UW-Madison and in the Madison area.",
-            "Optimization": "The Optimization Group’s profile has continued to grow as our research becomes more and more crucial to many areas of science, engineering, and economics. Researchers in the group develop new methods, explore their mathematical properties, and apply them to a wide range of important real-world problems. Examples of ongoing projects include optimization algorithms for machine learning and data science, strategic optimization for improved water quality and enhanced natural resources, and design and operation of more reliable electrical power grids. Our tools and techniques benefit our domain science collaborators by enabling them to formulate and model their problems, solve these formulations using efficient algorithms, and extract relevant information from their data. Our group has been involved in projects of this nature in ecology, medicine, statistics, agriculture, chemistry, control engineering, and genetics. Two important online resources for researchers and users of Optimization—NEOS and Optimization Online—are both hosted at Wisconsin. https://optimization.discovery.wisc.edu/",
-            "Human Computer Interaction": "The Human-Computer Interaction Group conducts interdisciplinary research across a broad spectrum in HCI, including human-robot interaction (HRI), visualization, accessibility, augmented/virtual reality (AR/VR), and mobile interaction. Our mission is to explore human abilities and needs, build human-centered methods and principles for technology design, and develop intelligent and interactive systems to address challenges that people with diverse abilities face in their daily lives, whether it involves improving human interaction with robots, presentation of and interaction with data by leveraging visualization techniques, or the ability of people with disabilities to use AR/VR systems for day-to-day tasks. https://hci.cs.wisc.edu/",
-            "Graphics / Visual Computing": "The Visual Computing Group takes a broad perspective on how computers are used to create and interact with things we see and do. Our research spans the areas of Computer Animation, Digital Content Creation, Multimedia, Visualization, Augmented/Virtual Reality, and Human-Robot Interaction. Some current projects include: Virtual Surgery—to simulate operations on the human body for training; High Performance Simulation—to create complex physical effects efficiently; Physical Human-Robot Interaction—to help robots better work together with people; Visual Data Science—to create interactive visualization tools to help people make sense of complex data sets; Visualization for Machine Learning—to create tools that facilitate the creation and use of data-centric systems; and AR/VR for Accessibility—to design AR/VR systems to empower people with disabilities. https://graphics.cs.wisc.edu/",
-            "Theory": "Faculty and students in the Theory of Computing group explore fundamental questions in computer science, such as: What defines computation? Which computational problems can be solved efficiently, and why? Additionally, we use computation as a lens to gain new insights into challenges across the natural, social, and engineering sciences.\n\nOur active research spans several key areas in the theory of algorithms and complexity, including computational questions in number theory and algebra, classification of counting problems, lower bounds for NP-complete problems, the role of randomness in computation, and cryptography (classic & post-quantum) and secure computation. We also have strong expertise in the algorithmic foundations of machine learning and statistics, sublinear and streaming algorithms, property testing, algorithmic game theory, and quantum computing.",
-            "Programming Languages\n&\nSoftware Engineering": "The PL/SE group is a world-class group of faculty and students at the forefront of programming languages, verification, and software-engineering research. The group focuses on improving software quality in a world where bugs are a fact of life and seeks practical ways to use program analysis, program synthesis, machine learning, and other techniques to understand and fix bugs in the real world. One effort aims to ensure that decision-making programs are fair, and that datamining programs do not leak sensitive personal data. Another aims to build tools that learn good ways to automatically fix errors in programs by looking at how actual programmers fix errors in their programs. Several projects are underway to use machine learning in tools for finding bugs in programs. https://madpl.cs.wisc.edu/.",
-            "Networks": "Networks Research in the Computer Sciences department at the University of Wisconsin-Madison broadly aims at mobile, wireless networking, Internet systems and protocols, Internet security, cluster interconnects, and data center networks. We are building fast, efficient, secure, and reliable networked systems and protocols at different scales. The Wisconsin Advanced Internet Laboratory (WAIL) conducts measurement-based research to investigate Internet performance, topology, robustness and security, and develops new systems and protocols that expand and enhance Internet functionality. The Wisconsin Wireless and NetworkinG Systems (WiNGS) Laboratory builds new, deployable wireless technologies such as low-power, long-range wireless systems and emerging high bandwidth systems in next-generation wireless networks, and applies them to diverse applications ranging from smart transportation, healthcare, and sustainable systems. The Wisconsin NetLab explores the effective use of emerging network hardware to architect rack-scale and data center scale systems. https://madnets.cs.wisc.edu",
-            "Systems": "The Systems Group is interested in understanding issues general to operating systems, distributed systems, virtual machines, data centers, and high performance computing. In addition to being a world-leader in file and storage systems research, one of our specialties is in the interaction of operating systems and hardware, including devices and new processor/memory technologies. We also develop technology that aids developers creating high-performance, scalable, parallel and distributed software with dynamic instrumentation. The group also develops systems for large-scale data analysis and machine learning. In addition, we are one of the few universities that are part of DOE’s Exascale Computing Program, helping to develop tools for the large supercomputers in the world. https://madsystems.cs.wisc.edu/",
-            "Computer Architecture": "The Computer Architecture Group has been influential since the 1980s with contributions to speculative processors, caches, parallel computing, memory consistency models, and simulation. Recent work examines flexible accelerators, speculative parallelism, virtual memory, using non-volatile memory, quantum computing, and sustainable computing. http://www.cs.wisc.edu/arch",
-            "Machine Learning": "We study the theory, algorithms, and applications of machine learning. Themes include analysis of deep learning, computational learning theory, multi-armed bandits and reinforcement learning, robot learning, robust learning and adversarial machine learning, machine teaching, embedding methods and transfer learning for text data, non-convex optimization for matrix and tensor factorization, and fast randomized large scale learning methods. Applications include bioinformatics, education, information extraction and data enrichment, adaptive agents, collaborative filtering, and interactive learning systems. https://machinelearning.wisc.edu/.",
-            "Computer Vision": "The Computer Vision Group in the Computer Sciences department at UW-Madison studies the acquisition of visual data and the systems that can understand it. In particular, we create novel computational imaging techniques and algorithms for scene understanding, object detection and segmentation, image, video and 3D map generation, and action recognition. Application areas include image and video search, consumer and scientific imaging, robotics, human-computer interfaces, art and design, security, healthcare, agriculture, industrial automation and transportation. https://wisionlab.cs.wisc.edu/",
-            "Robotics": "The UW–Madison Robotics Group is a campus-wide group of faculty, students, and staff carrying out research related to robotics from three departments and six research laboratories. The group carries out large-scale collaborative projects across laboratories as well as engages in campus-level educational and outreach efforts."
-        }
+            "Data Science": "data science",
+            "Database Systems": "database management system",
+            "Security": "computer security",
+            "Quantum Computing": "quantum computing",
+            "Optimization": "mathematical optimization",
+            "Human Computer Interaction": "human–computer interaction",
+            "Graphics / Visual Computing": "computer graphics",
+            "Theory": "theory of computation",
+            "Programming Languages\n&\nSoftware Engineering": "programming language",
+            "Networks": "computer network",
+            "Systems": "operating system",
+            "Computer Architecture": "computer architecture",
+            "Machine Learning": "machine learning",
+            "Computer Vision": "computer vision",
+            "Robotics": "robotics"
+        };
 
         const bigOval = document.getElementById("big-oval");
         const centerText = document.getElementById("oval-center-text");
@@ -148,9 +150,41 @@
 
         let selectedItem = null;
 
+        /**
+         * Fetches a plain text summary from the Wikipedia REST API for a given topic.
+         * @param {string} topic - the Wikipedia article title to fetch
+         * @returns {Promise<string>} the plain text extract of the article
+         */
+        function fetchWikipediaSummary(topic) {
+            const url = `https://en.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(topic)}`;
+            return fetch(url)
+                .then(res => res.json())
+                .then(data => data.extract)
+                .catch(() => 'Description not available.');
+        }
 
-        /* This function renders the traditional oval map on larger screen sizes
-            like the typical desktop. */
+        /**
+         * Fetches Wikipedia summaries for all CS fields and replaces the topic
+         * strings in csFields with the actual descriptions, then renders both
+         * the desktop map and mobile accordion.
+         */
+        async function loadDescriptions() {
+            const fields = Object.keys(csFields);
+            for (const field of fields) {
+                const topic = csFields[field];
+                const summary = await fetchWikipediaSummary(topic);
+                csFields[field] = summary;
+            }
+            centerText.textContent = "Click a topic to see a description.";
+            renderDesktopMap();
+            renderMobileAccordion();
+        }
+
+        /**
+         * Renders the oval map on desktop/tablet screen sizes.
+         * Places each CS field as a clickable oval element around the perimeter
+         * of the big oval, and updates the center text on click.
+         */
         function renderDesktopMap() {
             if (!bigOval) return;
 
@@ -181,6 +215,7 @@
                 item.style.left = `${x}px`;
                 item.style.top = `${y}px`;
 
+                // Update center text with Wikipedia description on click
                 item.addEventListener("click", function () {
                     centerText.textContent = csFields[field];
 
@@ -192,6 +227,7 @@
                     selectedItem = item;
                 });
 
+                // Hover highlight effect
                 item.addEventListener("mouseover", function () {
                     if (item !== selectedItem) {
                         item.style.backgroundColor = "#ff2930";
@@ -208,8 +244,10 @@
             });
         }
 
-        /* this function turns the oval map into an accordian styled list when the screen size
-            becomes too small */
+        /**
+         * Renders the mobile accordion with each CS field as an expandable item.
+         * Used on smaller screen sizes instead of the oval map.
+         */
         function renderMobileAccordion() {
             if (!csAccordion) return;
 
@@ -254,8 +292,8 @@
             });
         }
 
-        renderDesktopMap();
-        renderMobileAccordion();
+        // Load Wikipedia descriptions then render both views
+        loadDescriptions();
 
         window.addEventListener("resize", renderDesktopMap);
     </script>
